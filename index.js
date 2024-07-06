@@ -4,6 +4,8 @@ const app = express();
 const path = require("path");
 const db = require("./config/db");
 
+const userRoute = require("./routes/userRoutes");
+
 require("dotenv").config();
 const cors = require("cors");
 
@@ -15,6 +17,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(logger("dev"));
+
+app.use("/api/users", userRoute);
 
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
