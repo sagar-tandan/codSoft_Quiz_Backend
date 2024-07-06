@@ -22,5 +22,5 @@ const resultSchema = new mongoose.Schema(
   }
 );
 
-const resultModel = mongoose.model("reports", resultSchema);
+const resultModel = mongoose.model("results", resultSchema);
 module.exports = resultModel;
