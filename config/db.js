@@ -3,10 +3,7 @@ const mongoose = require("mongoose");
 config(configDotenv);
 
 // Connect to MongoDB using the provided environment variable
-mongoose.connect(process.env.MONGO_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(process.env.MONGO_URL);
 
 // Get the default connection
 const connectionDb = mongoose.connection;
