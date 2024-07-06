@@ -5,6 +5,7 @@ const path = require("path");
 const db = require("./config/db");
 
 const userRoute = require("./routes/userRoutes");
+const quizRoute = require("./routes/quizRoutes");
 
 require("dotenv").config();
 const cors = require("cors");
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(logger("dev"));
 
 app.use("/api/users", userRoute);
+app.use("/api/quizs", quizRoute);
 
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
