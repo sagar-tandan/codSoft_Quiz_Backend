@@ -1,15 +1,23 @@
-const mongoose = require("mongoose")
+const { config, configDotenv } = require("dotenv");
+const mongoose = require("mongoose");
+config(configDotenv);
 
-mongoose.connect(process.env.MONGO_URL)
+// Connect to MongoDB using the provided environment variable
+mongoose.connect(process.env.MONGO_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
-const connectionDb = mongoose.connection
+// Get the default connection
+const connectionDb = mongoose.connection;
 
-connectionDb.on('error',(error)=>{
-    console.log(error);
-})
+// Bind connection events
+connectionDb.on("error", (error) => {
+  console.error("MongoDB connection error:", error);
+});
 
-connectionDb.on('connected',()=>{
-    console.log("Connected to Database successfully.")
-})
+connectionDb.once("open", () => {
+  console.log("Connected to MongoDB successfully.");
+});
 
-module.exports = connectionDb
+module.exports = connectionDb;
