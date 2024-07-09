@@ -145,7 +145,7 @@ const deleteQuiz = async (req, res) => {
       }
     } else {
       res.send({
-        message: "Cannot Delete Quiz.",
+        message: "Cannot delete Quiz.",
         data: null,
         success: false,
       });
