@@ -238,7 +238,7 @@ const deleteQuestionFromQuiz = async (req, res) => {
       });
     } else {
       res.send({
-        message: "Questions cannot be deleted.",
+        message: "Question cannot be deleted.",
         success: false,
       });
     }
