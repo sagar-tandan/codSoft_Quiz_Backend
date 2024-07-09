@@ -203,7 +203,7 @@ const editQuestionInQuiz = async (req, res) => {
       });
     } else {
       res.send({
-        message: "Question cannot be edited.",
+        message: "Questions cannot be edited.",
         success: false,
       });
     }
@@ -238,7 +238,7 @@ const deleteQuestionFromQuiz = async (req, res) => {
       });
     } else {
       res.send({
-        message: "Question cannot be deleted.",
+        message: "Questions cannot be deleted.",
         success: false,
       });
     }
