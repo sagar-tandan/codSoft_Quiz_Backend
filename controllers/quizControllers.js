@@ -203,7 +203,7 @@ const editQuestionInQuiz = async (req, res) => {
       });
     } else {
       res.send({
-        message: "Questions cannot be edited.",
+        message: "Question cannot be edited.",
         success: false,
       });
     }
