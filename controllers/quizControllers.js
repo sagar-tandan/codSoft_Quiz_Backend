@@ -130,7 +130,7 @@ const deleteQuiz = async (req, res) => {
     if (user.isAdmin) {
       const quiz = await Quiz.findOne({ _id: req.params.id });
       if (quiz) {
-        quiz.delete();
+        await Quiz.findByIdAndDelete(req.params.id);
         res.send({
           message: "Selected quiz deleted successfully.",
           data: null,
@@ -151,6 +151,7 @@ const deleteQuiz = async (req, res) => {
       });
     }
   } catch (error) {
+    console.log(error);
     res.send({
       message: error.message,
       data: error,
